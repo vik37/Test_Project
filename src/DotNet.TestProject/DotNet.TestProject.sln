@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.TestProject.IdentityService", "UserIdentity\DotNet.TestProject.IdentityService\DotNet.TestProject.IdentityService.csproj", "{91D23800-99A3-4634-AC28-D19845F80197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.TestProject.IdentityDomainModels", "UserIdentity\DotNet.TestProject.IdentityDomainModels\DotNet.TestProject.IdentityDomainModels.csproj", "{EB727431-9C64-49BC-B077-8147E58CDC8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet.TestProject.IdentityInfrastructures", "UserIdentity\DotNet.TestProject.IdentityInfrastructures\DotNet.TestProject.IdentityInfrastructures.csproj", "{BB843C33-5443-48F0-823E-9C1A07AA5922}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91D23800-99A3-4634-AC28-D19845F80197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91D23800-99A3-4634-AC28-D19845F80197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91D23800-99A3-4634-AC28-D19845F80197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91D23800-99A3-4634-AC28-D19845F80197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB727431-9C64-49BC-B077-8147E58CDC8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB727431-9C64-49BC-B077-8147E58CDC8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB727431-9C64-49BC-B077-8147E58CDC8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB727431-9C64-49BC-B077-8147E58CDC8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB843C33-5443-48F0-823E-9C1A07AA5922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB843C33-5443-48F0-823E-9C1A07AA5922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB843C33-5443-48F0-823E-9C1A07AA5922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB843C33-5443-48F0-823E-9C1A07AA5922}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DD03E72-E3CB-49EB-B1B5-53969075FD5E}
+	EndGlobalSection
+EndGlobal
