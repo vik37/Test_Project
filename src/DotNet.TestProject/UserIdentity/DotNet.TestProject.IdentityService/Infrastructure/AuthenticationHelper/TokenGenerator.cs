@@ -2,8 +2,16 @@
 
 namespace DotNet.TestProject.IdentityService.Infrastructure.AuthenticationHelper;
 
+/// <summary>
+/// 
+/// </summary>
 public class TokenGenerator : ITokenGenerator
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="userClaims"></param>
+    /// <returns></returns>
     public string Generator(UserClaims userClaims)
     {
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtOptions.Key));

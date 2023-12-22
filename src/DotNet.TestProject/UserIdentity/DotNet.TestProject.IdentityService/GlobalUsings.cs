@@ -10,6 +10,8 @@ global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Data.SqlClient;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.OpenApi.Models;
 
 // Another Nuget Using Namespaces
 global using Asp.Versioning;

@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-
-namespace DotNet.TestProject.IdentityService.Controllers
+﻿namespace DotNet.TestProject.IdentityService.Controllers
 {
     /// <summary>
     /// User API Controller
@@ -30,9 +28,10 @@ namespace DotNet.TestProject.IdentityService.Controllers
 
         /// <summary>
         ///   This API Calls HTTP Get Method 
+        ///   Its Authorized - User must be Logged.  
         /// </summary>
         /// <returns>Single User Model by ID</returns>
-
+        [Authorize]
         [HttpGet("{userId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetUser([FromRoute] string userId)
@@ -123,6 +122,7 @@ namespace DotNet.TestProject.IdentityService.Controllers
 
         /// <summary>
         /// Update User
+        /// Only Admins can use
         /// </summary>
         /// <param name="command"></param>
         /// <returns>Ok, BadRequest, InternalServerError (200,404,500)</returns>
@@ -153,7 +153,8 @@ namespace DotNet.TestProject.IdentityService.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Remove User by ID
+        /// Only Admins can use
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

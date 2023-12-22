@@ -1,6 +1,4 @@
-﻿using Microsoft.OpenApi.Models;
-
-namespace DotNet.TestProject.IdentityService;
+﻿namespace DotNet.TestProject.IdentityService;
 
 /// <summary>
 ///  Custom Configuration Class
@@ -25,11 +23,11 @@ public static class CustomExtensionConfig
             option.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
             {
                 In = ParameterLocation.Header,
-                Description = "Please enter token",
+                Description = "Please enter token with Bearer format like bearer [space] token",
                 Name = "Authorization",
-                Type = SecuritySchemeType.Http,
+                Type = SecuritySchemeType.ApiKey,
                 BearerFormat = "JWT",
-                Scheme = "bearer"
+                Scheme = "Bearer"
             });
 
             option.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -112,19 +110,28 @@ public static class CustomExtensionConfig
         return app;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="services"></param>
+    /// <returns></returns>
     public static IServiceCollection JWTConfiguration(this IServiceCollection services)
     {
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
             .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
-                    ValidateAudience = true,
+                    ValidateAudience = false,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = JwtOptions.Issuer,
-                    ValidAudience = JwtOptions.Issuer,
+                    ValidAudience = null,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtOptions.Key))
                 };
             });

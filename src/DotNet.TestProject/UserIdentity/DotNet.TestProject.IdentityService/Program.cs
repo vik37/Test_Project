@@ -38,8 +38,7 @@ try
 
     services.AddMediatR(conf =>
     {
-        conf.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
-        
+        conf.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());       
     });
     services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
     services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
