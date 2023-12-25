@@ -1,21 +1,19 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Command;
 
 #pragma warning disable
-public class RegisterCommandHandler : IRequestHandler<RegisterCommand,TokenDto>
+public class RegisterCommandHandler : IRequestHandler<RegisterCommand,bool>
 {
     private readonly UserManager<User> _userManager;
     private readonly IMapper _mapper;
     private readonly ILogger<RegisterCommandHandler> _logger;
-    private readonly IMediator _mediator;
 
     public RegisterCommandHandler(UserManager<User> userManager, 
                                 ILogger<RegisterCommandHandler> logger,
-                                IMapper mapper, IMediator mediator)
+                                IMapper mapper)
     {
         _userManager = userManager;
         _logger = logger;
         _mapper = mapper;
-        _mediator = mediator;
     }
 
     /// <summary>
@@ -26,7 +24,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand,TokenDto>
     /// <returns></returns>
     /// <exception cref="IdentityUserException"></exception>
     /// <exception cref="Exception"></exception>
-    public async Task<TokenDto> Handle(RegisterCommand request, CancellationToken cancellationToken)
+    public async Task<bool> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
         try
         {
@@ -53,13 +51,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand,TokenDto>
 
             _logger.LogInformation("Registration was Success");
 
-            _logger.LogInformation("Login for the new Registered User Started");
-
-            var logginCommand = new LoginCommand(request.Username, request.Password);
-            var token = await _mediator.Send(logginCommand, cancellationToken);
-
-            _logger.LogInformation("Login for the new Registered User Successfully Completed");
-            return token;
+            return result.Succeeded;
         }
         catch (IdentityUserException ex)
         {

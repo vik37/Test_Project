@@ -11,11 +11,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
     private readonly ILogger<ValidationBehavior<TRequest,TResponse>> _logger;
     private readonly IEnumerable<IValidator<TRequest>> _validators;
 
-    /// <summary>
-    /// Validation Behavior Pipline Constructor
-    /// </summary>
-    /// <param name="logger"></param>
-    /// <param name="validators"></param>
+    #pragma warning disable
     public ValidationBehavior(ILogger<ValidationBehavior<TRequest, TResponse>> logger, 
                                 IEnumerable<IValidator<TRequest>> validators)
     {

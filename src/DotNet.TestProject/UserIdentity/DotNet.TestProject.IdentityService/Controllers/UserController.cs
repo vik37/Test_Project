@@ -72,7 +72,10 @@
             {
                 var result =  await _mediator.Send(command,default);
 
-                return CreatedAtAction(nameof(Login),result);
+                if (!result)
+                    return BadRequest();
+
+                return Ok();
             }
             catch(IdentityUserException ex)
             {

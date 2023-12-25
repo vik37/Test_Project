@@ -1,7 +1,7 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Command;
 
 #pragma warning disable
-public record RegisterCommand : IRequest<TokenDto>
+public record RegisterCommand : IRequest<bool>
 {
     public string Username { get; init; }
     public string Firstname { get; init; }
