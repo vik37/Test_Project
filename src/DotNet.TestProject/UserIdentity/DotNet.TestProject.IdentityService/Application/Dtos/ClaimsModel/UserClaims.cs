@@ -1,5 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Dtos.ClaimsModel;
 
+#pragma warning disable
 public class UserClaims
 {
     public string Id { get; set; }

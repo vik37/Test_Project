@@ -1,10 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.DomainEvents;
 
-/// <summary>
-/// 
-/// </summary>
-/// <param name="model"></param>
-/// <param name="token"></param>
+#pragma warning disable
 public record UserLoggedinSuccessfullyDomainEvent: INotification
 {
     public string UserIdentity { get; init; }
@@ -22,7 +18,7 @@ public record UserLoggedinSuccessfullyDomainEvent: INotification
     public bool FirstimeRegistered { get; set; }
 
     /// <summary>
-    /// 
+    ///  User Loggedin Successfully - Domain Event 
     /// </summary>
     /// <param name="userIdentity"></param>
     /// <param name="username"></param>

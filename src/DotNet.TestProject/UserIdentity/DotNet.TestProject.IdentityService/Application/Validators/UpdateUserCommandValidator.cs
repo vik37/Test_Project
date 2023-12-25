@@ -1,7 +1,11 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Validators;
 
+/// <summary>
+/// Class Fluent Validation Intended for Update User Command Model
+/// </summary>
 public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
 {
+    #pragma warning disable
     public UpdateUserCommandValidator()
     {
         RuleFor(x => x.Username).NotEmpty().MinimumLength(3);

@@ -9,10 +9,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
 {
     private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
 
-    /// <summary>
-    /// Logging Behavior Pipline Constructor
-    /// </summary>
-    /// <param name="logger"></param>
+    #pragma warning disable
     public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
     {
         _logger = logger;

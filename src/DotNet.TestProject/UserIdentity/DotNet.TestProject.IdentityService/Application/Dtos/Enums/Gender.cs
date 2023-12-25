@@ -1,8 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Dtos.Enums;
 
-/// <summary>
-/// 
-/// </summary>
+#pragma warning disable
 public enum GenderDto
 {
     Male = 1,

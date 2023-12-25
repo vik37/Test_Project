@@ -1,14 +1,7 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Queries;
 
-/// <summary>
-/// 
-/// </summary>
+#pragma warning disable
 public interface IUserQuery
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
     Task<UserViewModel> GetUser(string id);
 }

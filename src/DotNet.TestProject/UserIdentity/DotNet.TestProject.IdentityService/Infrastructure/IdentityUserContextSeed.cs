@@ -8,9 +8,7 @@ public class IdentityUserContextSeed
 {
     private readonly Dictionary<string,string> _ids = new();
 
-    /// <summary>
-    /// 
-    /// </summary>
+    #pragma warning disable
     public IdentityUserContextSeed()
     {
         _ids.Add("adminId",Guid.NewGuid().ToString());
@@ -18,7 +16,7 @@ public class IdentityUserContextSeed
     }
 
     /// <summary>
-    /// 
+    ///   Auto Seed DB Migrations to the Database 
     /// </summary>
     /// <param name="logger"></param>
     /// <param name="context"></param>

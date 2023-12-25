@@ -1,20 +1,12 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Command;
 
-/// <summary>
-/// 
-/// </summary>
+#pragma warning disable
 public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, bool>
 {
     private readonly IdentityUserDbContext _context;
     private readonly UserManager<User> _userManager;
     private readonly ILogger<UpdateUserCommandHandler> _logger;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="context"></param>
-    /// <param name="logger"></param>
-    /// <param name="userManager"></param>
     public UpdateUserCommandHandler(IdentityUserDbContext context, ILogger<UpdateUserCommandHandler> logger, 
                     UserManager<User> userManager)
     {
@@ -24,11 +16,11 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, bool>
     }
 
     /// <summary>
-    /// 
+    ///   Command Handler Intended for Updating Single User Values
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
-    /// <returns></returns>
+    /// <returns>Boolean</returns>
     /// <exception cref="NotImplementedException"></exception>
     public async Task<bool> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
     {

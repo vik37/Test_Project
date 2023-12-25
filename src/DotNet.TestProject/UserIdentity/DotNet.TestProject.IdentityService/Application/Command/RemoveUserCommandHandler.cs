@@ -1,5 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Command;
 
+#pragma warning disable
 public class RemoveUserCommandHandler : IRequestHandler<RemoveUserCommand, bool>
 {
     private readonly IdentityUserDbContext _context;
@@ -10,11 +11,11 @@ public class RemoveUserCommandHandler : IRequestHandler<RemoveUserCommand, bool>
     }
 
     /// <summary>
-    /// 
+    ///     Command Handler for Delete User from DB by ID
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>
-    /// <returns></returns>
+    /// <returns>boolean</returns>
     /// <exception cref="Exception"></exception>
     public async Task<bool> Handle(RemoveUserCommand request, CancellationToken cancellationToken)
     {

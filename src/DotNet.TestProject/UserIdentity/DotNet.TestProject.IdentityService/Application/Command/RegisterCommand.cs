@@ -1,8 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Command;
 
-/// <summary>
-/// 
-/// </summary>
+#pragma warning disable
 public record RegisterCommand : IRequest<TokenDto>
 {
     public string Username { get; init; }
@@ -15,9 +13,6 @@ public record RegisterCommand : IRequest<TokenDto>
 
     public Address Address { get; init; }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public RegisterCommand()
     {
         Address = new Address();

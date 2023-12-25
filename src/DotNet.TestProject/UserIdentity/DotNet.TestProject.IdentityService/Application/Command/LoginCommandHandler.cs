@@ -1,6 +1,4 @@
-﻿using DotNet.TestProject.IdentityService.Application.DomainEvents;
-
-namespace DotNet.TestProject.IdentityService.Application.Command;
+﻿namespace DotNet.TestProject.IdentityService.Application.Command;
 
 /// <summary>
 /// Command Handler intended for User Login
@@ -12,19 +10,13 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, TokenDto>
     private readonly ITokenGenerator _tokenGenerator;
     private readonly IMediator _mediator;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="userManager"></param>
-    /// <param name="logger"></param>
-    /// <param name="tokenGenerator"></param>
-    /// <param name="mediator"></param>
+    #pragma warning disable
     public LoginCommandHandler(UserManager<User> userManager, ILogger<LoginCommandHandler> logger,
         ITokenGenerator tokenGenerator, IMediator mediator)
     {
         _userManager = userManager;
         _logger = logger;
-        _tokenGenerator = tokenGenerator;
+        _tokenGenerator = tokenGenerator ?? throw new ArgumentNullException();
         _mediator = mediator;
     }
 

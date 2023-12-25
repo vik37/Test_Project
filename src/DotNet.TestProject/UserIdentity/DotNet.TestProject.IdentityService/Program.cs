@@ -19,8 +19,7 @@ try
     IServiceCollection services = builder.Services;
     IConfiguration configuration = builder.Configuration;
 
-    JwtOptions.Key = configuration["Jwt:Key"];
-    JwtOptions.Issuer = configuration["Jwt:Issuer"];
+    services.Configure<JWTOption>(configuration.GetSection(JWTOption.ConfigKey));
 
     // Add services to the container.
     services.AddControllers()
@@ -34,7 +33,7 @@ try
     services.SwaggerConfiguration()
             .CorsConfiguration()
             .DatabaseConfiguration(configuration["IdentityUserDbConnection"] ?? throw new Exception("Missing Database Connection String"))
-            .JWTConfiguration();
+            .JWTConfiguration(configuration);
 
     services.AddMediatR(conf =>
     {

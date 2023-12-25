@@ -1,8 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Dtos;
 
-/// <summary>
-/// 
-/// </summary>
+#pragma warning disable
 public class AddressDto
 {
     public string Country { get; set; }

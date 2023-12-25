@@ -1,20 +1,24 @@
-﻿using System.Security.Claims;
+﻿namespace DotNet.TestProject.IdentityService.Infrastructure.AuthenticationHelper;
 
-namespace DotNet.TestProject.IdentityService.Infrastructure.AuthenticationHelper;
-
-/// <summary>
-/// 
-/// </summary>
+#pragma warning disable
 public class TokenGenerator : ITokenGenerator
 {
+    private readonly JWTOption _jwtOption;
+
+    #pragma warning disable
+    public TokenGenerator(IOptions<JWTOption> options)
+    {
+        _jwtOption = options.Value;
+    }
+
     /// <summary>
-    /// 
+    ///  Generate JWT Token String for User Login
     /// </summary>
     /// <param name="userClaims"></param>
     /// <returns></returns>
     public string Generator(UserClaims userClaims)
     {
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtOptions.Key));
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOption.Key));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
         var claims = new[]
@@ -26,7 +30,7 @@ public class TokenGenerator : ITokenGenerator
         };
 
         var secToken = new JwtSecurityToken(
-                issuer: JwtOptions.Issuer,
+                issuer: _jwtOption.Issuer,
                 audience: null,
                 claims: claims,
                 expires: DateTime.UtcNow.AddMinutes(60),

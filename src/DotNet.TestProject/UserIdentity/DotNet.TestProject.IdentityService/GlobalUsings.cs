@@ -2,6 +2,7 @@
 global using System.Reflection;
 global using System.Text;
 global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
 
 // Microsoft Using Namespaces
 global using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ global using Microsoft.Data.SqlClient;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
 global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.Extensions.Options;
 global using Microsoft.OpenApi.Models;
 
 // Another Nuget Using Namespaces
@@ -37,3 +39,4 @@ global using DotNet.TestProject.IdentityService.Infrastructure.AuthenticationHel
 global using DotNet.TestProject.IdentityService.Application.Dtos.ClaimsModel;
 global using DotNet.TestProject.IdentityService.Application.Queries.ViewModels;
 global using DotNet.TestProject.IdentityService.Application.Queries;
+global using DotNet.TestProject.IdentityService.Application.DomainEvents;

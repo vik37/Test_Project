@@ -1,15 +1,13 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Validators;
 
 /// <summary>
-///  Class Fluent Validation Intended for Register Command Model
+///  Fluent Validation Intended for Register Command Model
 /// </summary>
 public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
 {
     private const string PasswordRegex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{7,}$";
 
-    /// <summary>
-    /// Constructor - Checking The Model Regular Register Command Model
-    /// </summary>
+    #pragma warning disable
     public RegisterCommandValidator()
     {
         RuleFor(x => x.Username).NotEmpty().MinimumLength(3);

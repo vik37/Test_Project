@@ -1,26 +1,21 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Queries;
 
-/// <summary>
-/// 
-/// </summary>
+#pragma warning disable
 public class UserQuery : IUserQuery
 {
     private readonly IdentityUserDbContext _db;
 
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="db"></param>
+	#pragma warning disable
     public UserQuery(IdentityUserDbContext db)
     {
         _db = db;
     }
 
     /// <summary>
-    /// 
+    ///	Get User By ID
     /// </summary>
     /// <param name="id"></param>
-    /// <returns></returns>
+    /// <returns>Single User Entity by ID</returns>
     /// <exception cref="Exception"></exception>
     public async Task<UserViewModel> GetUser(string id)
     {

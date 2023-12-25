@@ -1,5 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Queries.ViewModels;
 
+#pragma warning disable
 public class UserViewModel
 {
     public string Id { get; set; }

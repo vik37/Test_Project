@@ -1,15 +1,11 @@
-﻿using DotNet.TestProject.IdentityService.Application.Command;
-
-namespace DotNet.TestProject.IdentityService.Infrastructure.Mapper;
+﻿namespace DotNet.TestProject.IdentityService.Infrastructure.Mapper;
 
 /// <summary>
-/// 
+/// Custom Auto Mapper
 /// </summary>
 public class MapperProfile : Profile
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    #pragma warning disable
     public MapperProfile()
     {
         CreateMap<RegisterCommand, User>()

@@ -1,5 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Command;
 
+#pragma warning disable
 public class UpdateUserCommand : IRequest<bool>
 {
     public string Id { get; set; }

@@ -22,8 +22,8 @@
                                 IUserQuery userQuery)
         {
             _logger = logger;
-            _mediator = mediator;
-            _userQuery = userQuery;
+            _mediator = mediator ?? throw new ArgumentNullException();
+            _userQuery = userQuery ?? throw new ArgumentNullException();
         }
 
         /// <summary>

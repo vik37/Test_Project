@@ -1,8 +1,6 @@
 ﻿namespace DotNet.TestProject.IdentityService.Application.Command;
 
-/// <summary>
-/// 
-/// </summary>
+#pragma warning disable
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand,TokenDto>
 {
     private readonly UserManager<User> _userManager;
@@ -10,13 +8,6 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand,TokenDto>
     private readonly ILogger<RegisterCommandHandler> _logger;
     private readonly IMediator _mediator;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="userManager"></param>
-    /// <param name="logger"></param>
-    /// <param name="mapper"></param>
-    ///<param name="mediator"></param>
     public RegisterCommandHandler(UserManager<User> userManager, 
                                 ILogger<RegisterCommandHandler> logger,
                                 IMapper mapper, IMediator mediator)
@@ -28,7 +19,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand,TokenDto>
     }
 
     /// <summary>
-    /// 
+    ///  Command Handler Intended for Register
     /// </summary>
     /// <param name="request"></param>
     /// <param name="cancellationToken"></param>

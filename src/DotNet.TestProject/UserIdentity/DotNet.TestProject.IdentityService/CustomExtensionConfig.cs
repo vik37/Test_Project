@@ -111,17 +111,22 @@ public static class CustomExtensionConfig
     }
 
     /// <summary>
-    /// 
+    ///   JWT Token Bearer Configuration
     /// </summary>
     /// <param name="services"></param>
+    /// <param name="configuration"></param>
     /// <returns></returns>
-    public static IServiceCollection JWTConfiguration(this IServiceCollection services)
+    public static IServiceCollection JWTConfiguration(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddAuthentication(options =>
+        var jwtOption = configuration.GetSection(JWTOption.ConfigKey).Get<JWTOption>();
+
+        if(jwtOption != null)
         {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        })
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
             .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -130,11 +135,12 @@ public static class CustomExtensionConfig
                     ValidateAudience = false,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = JwtOptions.Issuer,
+                    ValidIssuer = jwtOption.Issuer,
                     ValidAudience = null,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtOptions.Key))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOption.Key))
                 };
             });
+        }
 
         return services;
     }
