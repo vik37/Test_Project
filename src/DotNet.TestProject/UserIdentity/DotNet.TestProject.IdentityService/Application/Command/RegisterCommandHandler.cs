@@ -31,7 +31,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand,bool>
             var userByEmail = await _userManager.FindByEmailAsync(request.Email);
 
             if (userByEmail is not null)
-                throw new IdentityUserException("The user is already registered");
+                throw new ArgumentException("The user is already registered");
 
             var user = _mapper.Map<User>(request);
 
@@ -53,9 +53,9 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand,bool>
 
             return result.Succeeded;
         }
-        catch (IdentityUserException ex)
+        catch (ArgumentException ex)
         {
-            throw new IdentityUserException(ex.Message, ex);
+            throw new ArgumentException(ex.Message, ex);
         }
         catch (Exception ex)
         {

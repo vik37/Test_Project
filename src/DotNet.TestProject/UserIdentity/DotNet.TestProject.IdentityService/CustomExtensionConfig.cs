@@ -126,6 +126,7 @@ public static class CustomExtensionConfig
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
             .AddJwtBearer(options =>
             {
@@ -141,6 +142,8 @@ public static class CustomExtensionConfig
                 };
             });
         }
+
+        services.AddAuthorization();
 
         return services;
     }

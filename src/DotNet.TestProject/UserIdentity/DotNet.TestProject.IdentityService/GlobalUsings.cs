@@ -3,6 +3,7 @@ global using System.Reflection;
 global using System.Text;
 global using System.IdentityModel.Tokens.Jwt;
 global using System.Security.Claims;
+global using System.Net;
 
 // Microsoft Using Namespaces
 global using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ global using Microsoft.IdentityModel.Tokens;
 global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.Extensions.Options;
 global using Microsoft.OpenApi.Models;
+global using Microsoft.AspNetCore.Mvc.Filters;
 
 // Another Nuget Using Namespaces
 global using Asp.Versioning;
@@ -31,7 +33,6 @@ global using DotNet.TestProject.IdentityService.Application.Dtos.Enums;
 global using DotNet.TestProject.IdentityService.Application.Command;
 global using DotNet.TestProject.IdentityDomainModels.UserDomainCustomException;
 global using DotNet.TestProject.IdentityService.Application.Behavior;
-global using DotNet.TestProject.IdentityService.Application.Validators;
 global using DotNet.TestProject.IdentityService.Infrastructure;
 global using DotNet.TestProject.IdentityService.Infrastructure.OptionsModel;
 global using DotNet.TestProject.IdentityService.Application.Dtos;
@@ -40,3 +41,5 @@ global using DotNet.TestProject.IdentityService.Application.Dtos.ClaimsModel;
 global using DotNet.TestProject.IdentityService.Application.Queries.ViewModels;
 global using DotNet.TestProject.IdentityService.Application.Queries;
 global using DotNet.TestProject.IdentityService.Application.DomainEvents;
+global using DotNet.TestProject.IdentityService.Infrastructure.GlobalExceptionHandling.Models;
+global using DotNet.TestProject.IdentityService.Infrastructure.GlobalExceptionHandling.ExceptionMiddlewares;

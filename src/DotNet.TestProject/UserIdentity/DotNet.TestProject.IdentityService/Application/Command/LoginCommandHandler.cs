@@ -38,7 +38,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, TokenDto>
             if (user is null || !invalidPassword)
             {
                 _logger.LogWarning("Invalid Try to Logged In");
-                throw new IdentityUserException("User does not exist or Password was Invalid!!!");
+                throw new ArgumentException("Invalid Username or Password!!!");
             }
 
             var roles = await _userManager.GetRolesAsync(user);
@@ -66,7 +66,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, TokenDto>
 
             return tokenModel;
         }
-        catch(IdentityUserException ex)
+        catch(ArgumentException ex)
         {
             throw new IdentityUserException(ex.Message);
         }

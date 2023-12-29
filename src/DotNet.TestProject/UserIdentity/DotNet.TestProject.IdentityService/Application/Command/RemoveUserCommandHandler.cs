@@ -4,10 +4,12 @@
 public class RemoveUserCommandHandler : IRequestHandler<RemoveUserCommand, bool>
 {
     private readonly IdentityUserDbContext _context;
+    private readonly ILogger<RemoveUserCommandHandler> _logger;
 
-    public RemoveUserCommandHandler(IdentityUserDbContext context)
+    public RemoveUserCommandHandler(IdentityUserDbContext context, ILogger<RemoveUserCommandHandler> logger)
     {
         _context = context;
+        _logger = logger;
     }
 
     /// <summary>
@@ -27,6 +29,8 @@ public class RemoveUserCommandHandler : IRequestHandler<RemoveUserCommand, bool>
 
             _context.User.Remove(user);
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation("User {username} was deleted successfully", user.UserName);
             return true;
         }
         catch (Exception ex)

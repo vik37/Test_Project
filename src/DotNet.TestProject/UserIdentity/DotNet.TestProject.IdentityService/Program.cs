@@ -1,3 +1,4 @@
+
 Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
                 .CreateLogger();
@@ -23,11 +24,11 @@ try
 
     // Add services to the container.
     services.AddControllers()
-        .AddNewtonsoftJson(opt =>
+    .AddNewtonsoftJson(opt =>
         {
-            opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-        });
+        opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+        opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+    });
 
     // custom config
     services.SwaggerConfiguration()
@@ -62,12 +63,19 @@ try
         });
     }
 
+    //app.ExceptionHandlerConfiguration();
+    app.UseMiddleware<GlobalExceptionMiddleware>();
+
     // Configure the HTTP request pipeline.
 
     app.UseHttpsRedirection();
 
+    
     app.UseAuthentication();
     app.UseAuthorization();
+
+   
+
 
     app.MapControllers();
 
